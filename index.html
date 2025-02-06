@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Unix Timestamp Link Generator</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Unix Timestamp Link Generator</h1>
+        <select id="cameraType">
+            <option value="grand_cam">Grand Cam</option>
+            <option value="semtoc_cam">Semtoc Cam</option>
+        </select>
+        <input type="number" id="cameraNumber" placeholder="Enter Camera Number (###)">
+        <button id="startButton">Start</button>
+        <p id="linkOutput"></p>
+        <img id="imageOutput" alt="Camera Image" style="display: none; margin-top: 20px; max-width: 100%;">
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>
+
