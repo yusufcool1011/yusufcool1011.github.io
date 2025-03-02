@@ -3,22 +3,34 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Unix Timestamp Link Generator</title>
+    <title>New Tab</title>
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
     <div class="container">
-        <h1>Unix Timestamp Link Generator</h1>
-        <select id="cameraType">
-            <option value="grand_cam">Grand Cam</option>
-            <option value="semtoc_cam">Semtoc Cam</option>
-        </select>
-        <input type="number" id="cameraNumber" placeholder="Enter Camera Number (###)">
-        <button id="startButton">Start</button>
-        <p id="linkOutput"></p>
-        <img id="imageOutput" alt="Camera Image" style="display: none; margin-top: 20px; max-width: 100%;">
+        <!-- Search Bar -->
+        <div class="search-container">
+            <input type="text" id="search-bar" placeholder="Search with DuckDuckGo or Google...">
+            <button id="search-button">Search</button>
+            <label>
+                <input type="checkbox" id="use-google"> Use Google for this search
+            </label>
+        </div>
+
+        <!-- Shortcuts -->
+        <div class="shortcuts">
+            <a href="https://www.deepseek.com" target="_blank">DeepSeek</a>
+            <a href="https://github.com" target="_blank">GitHub</a>
+            <a href="https://www.youtube.com" target="_blank">YouTube</a>
+            <a href="https://eclipseemu.me/play" target="_blank">Eclipse</a>
+        </div>
+
+        <!-- Flash Game -->
+        <div class="game-container">
+            <embed src="file.swf" width="600" height="400" type="application/x-shockwave-flash">
+        </div>
     </div>
+
     <script src="script.js"></script>
 </body>
 </html>
-

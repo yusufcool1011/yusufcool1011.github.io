@@ -1,27 +1,16 @@
-let intervalId; // Variable to hold the interval ID
+document.getElementById('search-button').addEventListener('click', function() {
+    const query = document.getElementById('search-bar').value;
+    const useGoogle = document.getElementById('use-google').checked;
 
-document.getElementById('startButton').addEventListener('click', function() {
-    const cameraType = document.getElementById('cameraType').value; // Get selected camera type
-    const cameraNumber = document.getElementById('cameraNumber').value;
-    const baseUrl = `https://micamerasimages.net/thumbs/${cameraType}_${cameraNumber}.flv.jpg`;
-    
-    if (!cameraNumber) {
-        alert('Please enter a camera number.');
-        return;
+    if (useGoogle) {
+        window.location.href = `https://www.google.com/search?q=${encodeURIComponent(query)}`;
+    } else {
+        window.location.href = `https://duckduckgo.com/?q=${encodeURIComponent(query)}`;
     }
+});
 
-    // Clear any existing interval to prevent switching
-    if (intervalId) {
-        clearInterval(intervalId);
+document.getElementById('search-bar').addEventListener('keypress', function(e) {
+    if (e.key === 'Enter') {
+        document.getElementById('search-button').click();
     }
-
-    // Display the image initially
-    document.getElementById('imageOutput').style.display = 'block';
-
-    intervalId = setInterval(() => {
-        const unixTimestamp = Math.floor(Date.now() / 1000);
-        const fullUrl = `${baseUrl}?timestamp=${unixTimestamp}`;
-        document.getElementById('linkOutput').innerText = fullUrl;
-        document.getElementById('imageOutput').src = fullUrl; // Update the image source
-    }, 1000);
 });
