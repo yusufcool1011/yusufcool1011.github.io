@@ -1,49 +1,40 @@
 <!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8" />
-  <title>Open Code in about:blank</title>
-</head>
-<body>
-  <button onclick="openBlankCode()">Open about:blank Page</button>
-
-  <script>
-    function openBlankCode() {
-      const htmlContent = `
-<!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
   <meta charset="UTF-8">
-  <title>Hello from about:blank</title>
+  <title>Open about:blank</title>
+</head>
+<body>
+  <button onclick="openBlank()">Open Real about:blank</button>
+
+  <script>
+    function openBlank() {
+      const newWindow = window.open('', '_blank'); // Use empty string, not about:blank
+      if (!newWindow) {
+        alert('Popup blocked. Please enable popups.');
+        return;
+      }
+
+      const html = `
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>about:blank Code</title>
   <style>
-    body {
-      font-family: Arial, sans-serif;
-      background: #fafafa;
-      padding: 20px;
-    }
-    h1 {
-      color: #4a4a4a;
-    }
+    body { font-family: sans-serif; padding: 2em; background: #fefefe; }
+    h1 { color: #222; }
   </style>
 </head>
 <body>
-  <h1>This is a new tab (about:blank)</h1>
-  <p>HTML + JavaScript was written from another tab.</p>
-  <script>
-    console.log("Hello from the new window!");
-  <\/script>
+  <h1>This is truly about:blank</h1>
+  <script>console.log('Running inside real about:blank');<\/script>
 </body>
-</html>
-      `;
+</html>`;
 
-      const newWin = window.open('about:blank');
-      if (newWin) {
-        newWin.document.open();
-        newWin.document.write(htmlContent);
-        newWin.document.close();
-      } else {
-        alert('Popup blocked. Please enable popups for this site.');
-      }
+      newWindow.document.open();
+      newWindow.document.write(html);
+      newWindow.document.close();
     }
   </script>
 </body>
