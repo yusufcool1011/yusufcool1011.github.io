@@ -5,40 +5,44 @@
   <title>Open Code in about:blank</title>
 </head>
 <body>
-  <button onclick="openCode()">Open Code in about:blank</button>
+  <button onclick="openBlankCode()">Open about:blank Page</button>
 
   <script>
-    function openCode() {
-      const newWindow = window.open('about:blank', '_blank');
-
-      if (newWindow) {
-        newWindow.document.write(`<!DOCTYPE html>
+    function openBlankCode() {
+      const htmlContent = `
+<!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>My Code</title>
+  <title>Hello from about:blank</title>
   <style>
     body {
-      font-family: sans-serif;
-      background-color: #f4f4f4;
+      font-family: Arial, sans-serif;
+      background: #fafafa;
       padding: 20px;
     }
     h1 {
-      color: #333;
+      color: #4a4a4a;
     }
   </style>
 </head>
 <body>
-  <h1>Hello from about:blank!</h1>
-  <p>This is dynamically written content.</p>
+  <h1>This is a new tab (about:blank)</h1>
+  <p>HTML + JavaScript was written from another tab.</p>
   <script>
-    console.log("Script is running inside about:blank!");
+    console.log("Hello from the new window!");
   <\/script>
 </body>
-</html>`);
-        newWindow.document.close();
+</html>
+      `;
+
+      const newWin = window.open('about:blank');
+      if (newWin) {
+        newWin.document.open();
+        newWin.document.write(htmlContent);
+        newWin.document.close();
       } else {
-        alert('Popup blocked! Please allow popups for this site.');
+        alert('Popup blocked. Please enable popups for this site.');
       }
     }
   </script>
