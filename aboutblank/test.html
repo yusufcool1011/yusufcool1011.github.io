@@ -5,33 +5,41 @@
   <title>Open Code in about:blank</title>
 </head>
 <body>
-  <button onclick="openCode()">Open Code</button>
+  <button onclick="openCode()">Open Code in about:blank</button>
 
   <script>
     function openCode() {
-      const code = `
-        <!DOCTYPE html>
-        <html>
-        <head>
-          <title>My Code</title>
-          <style>
-            body { font-family: sans-serif; background: #f0f0f0; padding: 20px; }
-            h1 { color: #333; }
-          </style>
-        </head>
-        <body>
-          <h1>Hello from about:blank!</h1>
-          <script>
-            console.log('JavaScript is running!');
-          <\/script>
-        </body>
-        </html>
-      `;
+      const newWindow = window.open('about:blank', '_blank');
 
-      const newWindow = window.open('about:blank');
-      newWindow.document.open();
-      newWindow.document.write(code);
-      newWindow.document.close();
+      if (newWindow) {
+        newWindow.document.write(`<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>My Code</title>
+  <style>
+    body {
+      font-family: sans-serif;
+      background-color: #f4f4f4;
+      padding: 20px;
+    }
+    h1 {
+      color: #333;
+    }
+  </style>
+</head>
+<body>
+  <h1>Hello from about:blank!</h1>
+  <p>This is dynamically written content.</p>
+  <script>
+    console.log("Script is running inside about:blank!");
+  <\/script>
+</body>
+</html>`);
+        newWindow.document.close();
+      } else {
+        alert('Popup blocked! Please allow popups for this site.');
+      }
     }
   </script>
 </body>
