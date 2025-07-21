@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Play Game</title>
+<style>
+  body {
+    margin: 0;
+    background: black;
+    color: #0ff;
+    font-family: 'Orbitron', sans-serif;
+    display: flex;
+    flex-direction: column;
+    height: 100vh;
+  }
+  iframe {
+    flex: 1;
+    border: none;
+  }
+  footer {
+    padding: 1rem;
+    text-align: center;
+    background: rgba(0,0,0,0.8);
+    text-shadow: 0 0 5px #0ff;
+  }
+</style>
+</head>
+<body>
+<iframe id="game-frame"></iframe>
+<footer id="game-info"></footer>
+<script>
+const urlParams = new URLSearchParams(window.location.search);
+const gameId = urlParams.get('g');
+fetch('games.json')
+.then(res => res.json())
+.then(data => {
+  const game = data.find(g => g.id === gameId);
+  if(game){
+    document.getElementById('game-frame').src = game.iframe;
+    document.getElementById('game-info').innerText = `${game.name} - ${game.description}`;
+  } else {
+    document.body.innerHTML = '<h1>Game not found</h1>';
+  }
+});
+</script>
+</body>
+</html>

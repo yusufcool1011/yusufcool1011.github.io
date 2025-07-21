@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Yusuf Games</title>
+<style>
+  body {
+    margin: 0;
+    font-family: 'Orbitron', sans-serif;
+    background: linear-gradient(135deg, #0f0c29, #302b63, #24243e);
+    color: #0ff;
+  }
+  header {
+    text-align: center;
+    padding: 2rem;
+    font-size: 2rem;
+    text-shadow: 0 0 10px #0ff, 0 0 20px #0ff;
+  }
+  main {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 1rem;
+    padding: 1rem;
+  }
+  .game-card {
+    background: rgba(0,0,0,0.5);
+    border: 1px solid #0ff;
+    border-radius: 10px;
+    padding: 1rem;
+    text-align: center;
+    cursor: pointer;
+    transition: transform 0.2s;
+  }
+  .game-card:hover {
+    transform: scale(1.05);
+    box-shadow: 0 0 15px #0ff;
+  }
+  a {
+    color: #0ff;
+    text-decoration: none;
+  }
+</style>
+</head>
+<body>
+<header>🎮 Yusuf Games 🎮</header>
+<main id="games"></main>
+<script>
+fetch('games.json')
+.then(res => res.json())
+.then(data => {
+  const container = document.getElementById('games');
+  data.forEach(game => {
+    const card = document.createElement('div');
+    card.className = 'game-card';
+    card.innerHTML = `<h3>${game.name}</h3><p>${game.description}</p><a href="game.html?g=${game.id}">Play</a>`;
+    container.appendChild(card);
+  });
+});
+</script>
+</body>
+</html>
