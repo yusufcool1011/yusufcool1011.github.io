@@ -17,6 +17,7 @@
   iframe {
     flex: 1;
     border: none;
+    min-height: 400px;
   }
   footer {
     padding: 1rem;
@@ -40,9 +41,10 @@ fetch('games.json')
     document.getElementById('game-frame').src = game.iframe;
     document.getElementById('game-info').innerText = `${game.name} - ${game.description}`;
   } else {
-    document.body.innerHTML = '<h1>Game not found</h1>';
+    document.body.innerHTML = '<h1 style="text-align:center; color:#0ff;">Game not found</h1>';
   }
-});
+})
+.catch(err => console.error('Error loading game data:', err));
 </script>
 </body>
 </html>

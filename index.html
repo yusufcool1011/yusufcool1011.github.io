@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<title>Yusuf Games</title>
+<title>Neon Arcade</title>
 <style>
   body {
     margin: 0;
@@ -18,9 +18,6 @@
     text-shadow: 0 0 10px #0ff, 0 0 20px #0ff;
   }
   main {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-    gap: 1rem;
     padding: 1rem;
   }
   .game-card {
@@ -28,6 +25,7 @@
     border: 1px solid #0ff;
     border-radius: 10px;
     padding: 1rem;
+    margin: 0.5rem 0;
     text-align: center;
     cursor: pointer;
     transition: transform 0.2s;
@@ -43,20 +41,28 @@
 </style>
 </head>
 <body>
-<header>🎮 Yusuf Games 🎮</header>
+<header>🎮 Neon Arcade 🎮</header>
 <main id="games"></main>
 <script>
-fetch('games.json')
-.then(res => res.json())
-.then(data => {
+Promise.all([
+  fetch('games.json').then(res => res.json()),
+  fetch('categories.json').then(res => res.json())
+]).then(([games, categories]) => {
   const container = document.getElementById('games');
-  data.forEach(game => {
-    const card = document.createElement('div');
-    card.className = 'game-card';
-    card.innerHTML = `<h3>${game.name}</h3><p>${game.description}</p><a href="game.html?g=${game.id}">Play</a>`;
-    container.appendChild(card);
-  });
-});
+  for(const category in categories){
+    const catTitle = document.createElement('h2');
+    catTitle.textContent = category;
+    catTitle.style.textShadow = '0 0 10px #0ff';
+    container.appendChild(catTitle);
+    const catGames = categories[category].map(id => games.find(g => g.id === id)).filter(Boolean);
+    catGames.forEach(game => {
+      const card = document.createElement('div');
+      card.className = 'game-card';
+      card.innerHTML = `<h3>${game.name}</h3><p>${game.description}</p><a href="game.html?g=${game.id}">Play</a>`;
+      container.appendChild(card);
+    });
+  }
+}).catch(err => console.error('Error loading games or categories:', err));
 </script>
 </body>
 </html>
