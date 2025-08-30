@@ -2,6 +2,7 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1"> <!-- Mobile scaling -->
   <title>Markdown Viewer</title>
 
   <!-- GitHub Markdown CSS -->
@@ -14,19 +15,29 @@
     body {
       display: flex;
       justify-content: center;
-      padding: 2rem;
+      padding: 1rem;
+      margin: 0;
       background-color: #f6f8fa;
       font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif;
     }
     .markdown-body {
       box-sizing: border-box;
-      min-width: 200px;
-      max-width: 900px;
       width: 100%;
-      padding: 2rem;
+      max-width: 900px;
+      padding: 1.5rem;
       background: #fff;
       border-radius: 6px;
       border: 1px solid #d0d7de;
+      color: #000; /* override GitHub gray text */
+      line-height: 1.6;
+    }
+
+    /* Make tables scrollable on small screens */
+    .markdown-body table {
+      display: block;
+      width: 100%;
+      overflow-x: auto;
+      border-collapse: collapse;
     }
   </style>
 </head>
@@ -41,7 +52,7 @@
         const response = await fetch(mdURL, { cache: "no-store" });
         const text = await response.text();
 
-        // check if first non-empty line starts with "# "
+        // Use first H1 as page title if present
         const firstLine = text.split("\n").find(line => line.trim().length > 0);
         if (firstLine && firstLine.startsWith("# ")) {
           document.title = firstLine.replace(/^# /, "").trim();
