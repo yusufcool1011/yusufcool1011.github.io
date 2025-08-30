@@ -1,4 +1,4 @@
-# Arduino 4x4 Keypad + LCD + Servo Guide
+# Arduino Door Lock
 
 This document explains how to create an Arduino project where entering the correct 4-digit code on a 4x4 keypad shows "Access Granted" on an LCD and moves a servo motor from 0° to 90° for 30 seconds before returning to 0°.
 
@@ -66,7 +66,7 @@ This document explains how to create an Arduino project where entering the corre
 
 ## Arduino Code
 
-[Click here to view/download the Arduino code](https://example.com/arduino_servo_keypad_lcd.ino)
+[Click here to view/download the Arduino code](https://app.arduino.cc/sketches/550ad883-b55b-423a-abdd-e845e2fa84bd?view-mode=preview)
 
 ```cpp
 #include <Keypad.h>
