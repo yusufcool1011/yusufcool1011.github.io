@@ -3,35 +3,56 @@
 <head>
   <meta charset="UTF-8">
   <title>Markdown Viewer</title>
+
+  <!-- GitHub Markdown CSS -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/github-markdown-css/5.2.0/github-markdown.min.css">
+
+  <!-- Marked.js for Markdown parsing -->
   <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+
+  <style>
+    body {
+      display: flex;
+      justify-content: center;
+      padding: 2rem;
+      background-color: #f6f8fa;
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif;
+    }
+    .markdown-body {
+      box-sizing: border-box;
+      min-width: 200px;
+      max-width: 900px;
+      width: 100%;
+      padding: 2rem;
+      background: #fff;
+      border-radius: 6px;
+      border: 1px solid #d0d7de;
+    }
+  </style>
 </head>
 <body>
-  <div id="content">Loading...</div>
-  <button onclick="copyMarkdown()">Copy Markdown</button>
+  <div class="markdown-body" id="content">Loading...</div>
 
   <script>
     const mdURL = "https://raw.githubusercontent.com/yusufcool1011/yusufcool1011.github.io/main/docs/keypad/index.md"; // change this
 
-    let latestMarkdown = "";
-
     async function loadMarkdown() {
       try {
         const response = await fetch(mdURL, { cache: "no-store" });
-        latestMarkdown = await response.text();
-        document.getElementById("content").innerHTML = marked.parse(latestMarkdown);
+        const text = await response.text();
+
+        // check if first non-empty line starts with "# "
+        const firstLine = text.split("\n").find(line => line.trim().length > 0);
+        if (firstLine && firstLine.startsWith("# ")) {
+          document.title = firstLine.replace(/^# /, "").trim();
+        }
+
+        document.getElementById("content").innerHTML = marked.parse(text);
       } catch (err) {
         document.getElementById("content").innerText = "Error loading Markdown: " + err;
       }
     }
 
-    function copyMarkdown() {
-      if (!latestMarkdown) return alert("Markdown not loaded yet!");
-      navigator.clipboard.writeText(latestMarkdown)
-        .then(() => alert("Markdown copied to clipboard!"))
-        .catch(err => alert("Failed to copy: " + err));
-    }
-
-    // Load once when page opens
     loadMarkdown();
   </script>
 </body>
