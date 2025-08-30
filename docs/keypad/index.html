@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Markdown Viewer</title>
+  <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+</head>
+<body>
+  <div id="content">Loading...</div>
+  <button onclick="copyMarkdown()">Copy Markdown</button>
+
+  <script>
+    const mdURL = "https://raw.githubusercontent.com/yusufcool1011/yusufcool1011.github.io/main/docs/keypad/index.md"; // change this
+
+    let latestMarkdown = "";
+
+    async function loadMarkdown() {
+      try {
+        const response = await fetch(mdURL, { cache: "no-store" });
+        latestMarkdown = await response.text();
+        document.getElementById("content").innerHTML = marked.parse(latestMarkdown);
+      } catch (err) {
+        document.getElementById("content").innerText = "Error loading Markdown: " + err;
+      }
+    }
+
+    function copyMarkdown() {
+      if (!latestMarkdown) return alert("Markdown not loaded yet!");
+      navigator.clipboard.writeText(latestMarkdown)
+        .then(() => alert("Markdown copied to clipboard!"))
+        .catch(err => alert("Failed to copy: " + err));
+    }
+
+    // Load once when page opens
+    loadMarkdown();
+  </script>
+</body>
+</html>
