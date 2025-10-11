@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>AI Chatbot Project</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <header class="glass-nav">
+    <a href="projects.html" class="logo">← Projects</a>
+    <h1>AI Chatbot</h1>
+  </header>
+
+  <section class="project-page glass-container">
+    <h2>Overview</h2>
+    <p>
+      This Python chatbot uses the OpenAI API to hold natural conversations with users.
+      It demonstrates context management, API integration, and command-line I/O.
+    </p>
+
+    <h2>Features</h2>
+    <ul>
+      <li>Natural conversation flow using AI models</li>
+      <li>Custom personality configuration</li>
+      <li>JSON-based conversation history</li>
+    </ul>
+
+    <h2>Links</h2>
+    <div class="links">
+      <a href="https://github.com/YOURUSERNAME/chatbot" target="_blank" class="github">GitHub</a>
+      <a href="https://github.com/YOURUSERNAME/chatbot/archive/refs/heads/main.zip" class="download">Download</a>
+    </div>
+  </section>
+</body>
+</html>
