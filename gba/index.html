@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>GBA Emulator</title>
+<style>
+  body {
+    font-family: 'Segoe UI', sans-serif;
+    background-color: #111;
+    color: white;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    min-height: 100vh;
+    transition: background 0.5s;
+  }
+
+  header {
+    font-size: 2em;
+    margin: 1em 0;
+  }
+
+  .games {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 20px;
+    transition: opacity 0.3s;
+  }
+
+  .game {
+    width: 150px;
+    height: 150px;
+    background: #222;
+    border-radius: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: transform 0.3s, background 0.3s;
+    text-transform: capitalize;
+    font-weight: bold;
+  }
+
+  .game:hover {
+    transform: scale(1.2);
+    background: #333;
+  }
+
+  .game-view {
+    display: none;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    gap: 10px;
+  }
+
+  .game-view.active {
+    display: flex;
+  }
+
+  .game-title {
+    font-size: 2em;
+    margin-top: 1em;
+  }
+
+  .back-btn {
+    background: white;
+    color: black;
+    border: none;
+    padding: 10px 18px;
+    border-radius: 8px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background 0.3s;
+  }
+
+  .back-btn:hover {
+    background: #ccc;
+  }
+
+  .embed {
+    width: 90%;
+    height: 400px;
+    background: #000;
+    border: 2px solid white;
+    border-radius: 10px;
+    margin-top: 1em;
+  }
+</style>
+</head>
+<body>
+
+<header>🎮 GBA Emulator</header>
+
+<!-- Game Selection -->
+<div class="games" id="game-list">
+  <div class="game" data-color="#1a472a" data-hash="pokemon-gaia">Pokémon Gaia</div>
+  <div class="game" data-color="#003366" data-hash="pokemon-glazed">Pokémon Glazed</div>
+  <div class="game" data-color="#7f0000" data-hash="fire-red">Fire Red</div>
+  <div class="game" data-color="#551a8b" data-hash="metroid-fusion">Metroid Fusion</div>
+</div>
+
+<!-- Game Views -->
+<div id="pokemon-gaia" class="game-view" data-color="#1a472a">
+  <div class="game-title">Pokémon Gaia</div>
+  <button class="back-btn">⬅ Back</button>
+  <div class="embed">
+    <!-- Example Embed -->
+    <iframe src="https://example.com/gaia.html" width="100%" height="100%" frameborder="0"></iframe>
+  </div>
+</div>
+
+<div id="pokemon-glazed" class="game-view" data-color="#003366">
+  <div class="game-title">Pokémon Glazed</div>
+  <button class="back-btn">⬅ Back</button>
+  <div class="embed">
+    <iframe src="https://example.com/glazed.html" width="100%" height="100%" frameborder="0"></iframe>
+  </div>
+</div>
+
+<div id="fire-red" class="game-view" data-color="#7f0000">
+  <div class="game-title">Fire Red</div>
+  <button class="back-btn">⬅ Back</button>
+  <div class="embed">
+    <iframe src="https://example.com/firered.html" width="100%" height="100%" frameborder="0"></iframe>
+  </div>
+</div>
+
+<div id="metroid-fusion" class="game-view" data-color="#551a8b">
+  <div class="game-title">Metroid Fusion</div>
+  <button class="back-btn">⬅ Back</button>
+  <div class="embed">
+    <iframe src="https://example.com/metroid.html" width="100%" height="100%" frameborder="0"></iframe>
+  </div>
+</div>
+
+<script>
+  const gameList = document.getElementById("game-list");
+  const views = document.querySelectorAll(".game-view");
+
+  function showGame(hash, color) {
+    document.body.style.background = color;
+    gameList.style.display = "none";
+    document.querySelectorAll(".game-view").forEach(v => v.classList.remove("active"));
+    document.getElementById(hash).classList.add("active");
+    location.hash = hash;
+  }
+
+  function showMenu() {
+    document.body.style.background = "#111";
+    gameList.style.display = "flex";
+    views.forEach(v => v.classList.remove("active"));
+    location.hash = "";
+  }
+
+  document.querySelectorAll(".game").forEach(game => {
+    game.addEventListener("click", () => {
+      showGame(game.dataset.hash, game.dataset.color);
+    });
+  });
+
+  document.querySelectorAll(".back-btn").forEach(btn => {
+    btn.addEventListener("click", showMenu);
+  });
+
+  window.addEventListener("load", () => {
+    const hash = location.hash.replace("#", "");
+    if (hash) {
+      const view = document.getElementById(hash);
+      if (view) showGame(hash, view.dataset.color);
+    }
+  });
+
+  window.addEventListener("hashchange", () => {
+    if (!location.hash) showMenu();
+  });
+</script>
+
+</body>
+</html>
