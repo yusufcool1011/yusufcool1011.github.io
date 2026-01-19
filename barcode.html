@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Hashtag Barcode Scanner</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      background: #f4f4f4;
+    }
+    .box {
+      background: white;
+      padding: 20px;
+      border-radius: 8px;
+      box-shadow: 0 0 10px rgba(0,0,0,0.1);
+      text-align: center;
+    }
+    input {
+      padding: 10px;
+      width: 220px;
+      font-size: 16px;
+    }
+    button {
+      margin-top: 10px;
+      padding: 10px 20px;
+      font-size: 16px;
+      cursor: pointer;
+    }
+    .error {
+      margin-top: 10px;
+      color: red;
+      font-weight: bold;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="box">
+    <h2>Enter Hashtag</h2>
+    <input type="text" id="barcode" placeholder="#info or #watch">
+    <br>
+    <button onclick="checkBarcode()">Submit</button>
+    <div class="error" id="error"></div>
+  </div>
+
+  <script>
+    function checkBarcode() {
+      const value = document.getElementById("barcode").value.trim();
+      const error = document.getElementById("error");
+      error.textContent = "";
+
+      if (value === "#76872") {
+        window.open("https://www.kababparadise.com/lake-hiawatha/", "_blank");
+      } else if (value === "#94212") {
+        window.open("https://www.youtube.com", "_blank");
+      } else {
+        error.textContent = "Invalid barcode";
+      }
+    }
+  </script>
+
+</body>
+</html>
