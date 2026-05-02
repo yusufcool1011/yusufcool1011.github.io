@@ -1,0 +1,46 @@
+<link rel="stylesheet" href="yainewsletterform.css">
+<form
+  action="https://docs.google.com/forms/d/e/1FAIpQLSeDjFmKJcC3EVHQ1GLN3NZesApPLFsMoxGEemYTvp8fmdBw0A/formResponse"
+  class="fs-form"
+  target="_blank"
+  method="POST"
+>
+  <div class="fs-field">
+    <label class="fs-label" for="name">Name</label>
+    <input class="fs-input" id="name" name="entry.1609774230" type="text" required />
+  </div>
+  <div class="fs-field">
+    <label class="fs-label" for="email">Email</label>
+    <input class="fs-input" id="email" name="entry.1803823442" type="email" required />
+  </div>
+  <div class="fs-field" style="margin-bottom: 2rem">
+    <label class="fs-label" for="why-you-choose">
+      Your rating
+    </label>
+    <input
+      class="fs-slider"
+      id="why-you-choose"
+      max="5"
+      min="1"
+      name="entry.1956921919"
+      required
+      step="1"
+      type="range"
+      value="5"
+    />
+    <div class="slider-label-container">
+      <span class="slider-label-text">1</span>
+      <span class="slider-label-text">2</span>
+      <span class="slider-label-text">3</span>
+      <span class="slider-label-text">4</span>
+      <span class="slider-label-text">5</span>
+    </div>
+  </div>
+  <div class="fs-field">
+    <label class="fs-label" for="message">Why you gave this rating</label>
+    <textarea class="fs-textarea" id="message" name="entry.2047166508" type="text"></textarea>
+  </div>
+  <div class="fs-button-group">
+    <button class="fs-button" type="submit">Send</button>
+  </div>
+</form>
