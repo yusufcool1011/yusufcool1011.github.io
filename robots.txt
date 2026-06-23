@@ -1,4 +1,4 @@
 User-agent: *
 Disallow:
 
-Sitemap: https://alshedivat.github.io/al-folio/sitemap.xml
+Sitemap: https://yusufcool1011.github.io/yusufcool1011-pages-temp/sitemap.xml
