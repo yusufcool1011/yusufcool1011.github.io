@@ -317,4 +317,8 @@ jekyll-archives:
   books:
     enabled: [year, tags, categories] # enables year, tag and category archives (remove if you need to disable one of them).
 
+# Minimal third_party_libraries block to satisfy jekyll-3rd-party-libraries plugin
+third_party_libraries:
+  download: false
+
 # (rest of file unchanged)
