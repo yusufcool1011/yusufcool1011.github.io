@@ -1,0 +1,67 @@
+---
+layout: post
+title: How I installed an AI locally on my Raspberry Pi 5
+date: 2026-06-23 18:00:00
+description: It is easier than you think.
+tags: ai code future
+categories: tutorials
+featured: true
+---
+
+Now by the looks of it, this may seem impossible because most people think that AI needs top-level computers and a data center. Although, they can be run on personal devices! Today we will be able to install an AI on a Raspberry Pi 5; a computer the size of a credit card.
+
+## 1. Install Raspberry Pi OS
+
+First of all we will need to install the operating system on the Pi. You can do this by using the Raspberry Pi Imager or holding `Shift` while booting for Network Install.  
+     
+> This will erase all data on the storage unit. Back up all data before preceding. If you are using Network Install, make sure you are connected to the Internet via Ethernet. If you boot into something else, unplug the storage unit, try again, then plug in the storage unit after booting into Network Install.
+
+## 2. Install Ollama
+
+After you install the operating system, you will need to install Ollama, which is a service which installs and runs AI models on your device. To do this run the cURL command for the Ollama installer.
+
+```bash  
+curl -fsSL https://ollama.com/install.sh | sh  
+```
+
+## 3. Install Gemma
+
+   Now that we have installed Ollama, we can install an AI model. Let's go with Gemma 2B.
+
+```bash  
+ollama pull gemma:2b  
+```  
+Now run it:  
+```bash  
+ollama run gemma:2b  
+```
+
+## 4. Install Open WebUI
+
+Now that our AI is running, let's make it have a user interface. To do this, we will use Open WebUI. To install Open WebUI, first make its venv.
+
+```bash  
+python3 -m venv venv  
+```  
+Then activate the venv.  
+```bash  
+source venv/bin/activate  
+```  
+Now we can move on to installing Open WebUI.  
+Install Open WebUI via pip:  
+```bash  
+pip install open-webui  
+```  
+Run Open WebUI  
+```bash  
+open-webui serve  
+```  
+> ##### TIP
+> Getting Stuck? Check out [Open WebUI’s documentation](https://docs.openwebui.com/getting-started/quick-start/#venv-steps).
+{: .block-tip }
+
+Getting Stuck?  
+Check out [Open WebUI’s documentation](https://docs.openwebui.com/getting-started/quick-start/#venv-steps).
+
+## 5. Explore
+Now that you have finished this guide, you can explore AI models without needing an internet connection!
