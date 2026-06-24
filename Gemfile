@@ -16,7 +16,7 @@ group :jekyll_plugins do
     gem 'jekyll-minifier'
     gem 'jekyll-paginate-v2'
     gem 'jekyll-regex-replace'
-    gem 'jekyll-scholar'
+    # gem 'jekyll-scholar'  # disabled: publications removed
     gem 'jekyll-sitemap'
     gem 'jekyll-socials'
     gem 'jekyll-tabs'
@@ -49,7 +49,7 @@ group :al_folio_plugins do
     gem 'al_cookie', '= 1.0.0'
 
     gem 'al_analytics', '= 1.0.0'
-    gem 'al_citations', '= 1.0.1'
+    # gem 'al_citations', '= 1.0.1'  # disabled: publications removed
     gem 'al_ext_posts', '= 1.0.1'
     gem 'al_img_tools', '= 1.0.2'
     gem 'al_search', '= 1.0.2'
