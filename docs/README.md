@@ -1,3 +1,4 @@
+### should remove this README file when finished
 # al-folio Documentation
 
 These guides cover the `al-folio` v1.x starter and its pluginized runtime.
