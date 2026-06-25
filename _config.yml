@@ -317,8 +317,29 @@ jekyll-archives:
   books:
     enabled: [year, tags, categories] # enables year, tag and category archives (remove if you need to disable one of them).
 
-# Minimal third_party_libraries block to satisfy jekyll-3rd-party-libraries plugin
+# -----------------------------------------------------------------------------
+# Library versions
+# -----------------------------------------------------------------------------
+# Add the url, version and integrity hash of the libraries you use in your site.
+# The integrity hash is used to ensure that the library is not tampered with.
+# Integrity hashes not provided by the libraries were generated using https://www.srihash.org/
 third_party_libraries:
-  download: false
-
-# (rest of file unchanged)
+  download: false # if true, download the versions of the libraries specified below and use the downloaded files
+  fontawesome:
+    integrity:
+      css: "sha256-MVopmdyC2tYTiJ8wlktf0uh0v4NgT+vNdyVFepi7Q0c="
+    url:
+      css: "https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@{{version}}/css/all.min.css"
+    version: "7.2.0"
+  academicons:
+    integrity:
+      css: "sha256-SzrCOBJbGVFMahewkgjwnApaV2+av1DwMAA+/QGLyZw="
+    url:
+      css: "https://cdn.jsdelivr.net/npm/academicons@{{version}}/css/academicons.min.css"
+    version: "1.9.5"
+  scholar-icons:
+    integrity:
+      css: "sha256-VY3hHVj/hNX3fYG6wtbA6TcKJQl7+FthzGSyIB64klY="
+    url:
+      css: "https://cdn.jsdelivr.net/npm/scholar-icons@{{version}}/css/scholar-icons.css"
+    version: "1.0.3"
