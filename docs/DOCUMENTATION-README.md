@@ -1,4 +1,3 @@
-### should rename this README file when finished
 # al-folio Documentation
 
 These guides cover the `al-folio` v1.x starter and its pluginized runtime.
@@ -32,4 +31,4 @@ When changing feature behavior, route the work to the owning plugin repo first. 
 - `_data/featured_plugins.yml` catalog metadata,
 - documentation, examples, integration tests, or visual parity coverage.
 
-See [Ownership Boundaries](BOUNDARIES.md) for the full routing table.
+See [Ownership Boundaries](BOUNDARIES.md) for the full routingrouting
