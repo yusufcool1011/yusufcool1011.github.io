@@ -1,14 +1,12 @@
 github_users:
-  - torvalds
-  - alshedivat
+  - yusufcool1011
+  - imraantalib17
 
 repo_description_lines_max: 2
 
 github_repos:
-  - alshedivat/al-folio
-  - jekyll/jekyll
-  - twbs/bootstrap
-  - jquery/jquery
-  - FortAwesome/Font-Awesome
-  - mathjax/MathJax
-  - jpswalsh/academicons
+  - yusufcool1011/yusufcool1011.github.io
+  - yusufcool1011/unixmicamera
+  - yusufcool1011/gamesnacks-side-panel
+  - imraantalib17/imraantalib17.github.io
+  - torvalds/linux
