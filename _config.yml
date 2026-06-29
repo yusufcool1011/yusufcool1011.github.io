@@ -101,10 +101,16 @@ serve_schema_org: false # Include Schema.org in the HTML head
 og_image: # The site-wide (default for all links) Open Graph preview image
 
 # -----------------------------------------------------------------------------
+# Cookie Consent
+# -----------------------------------------------------------------------------
+   al_cookie:
+     enabled: true
+     message: "This site uses cookies to improve your experience."
+     dismiss_text: "Got it!"
+     link: # path to your privacy/cookie policy page, if any
+# -----------------------------------------------------------------------------
 # Analytics and search engine verification
 # -----------------------------------------------------------------------------
-enable_cookie_consent: true
-  
 analytics:
   # For Google Analytics, see https://support.google.com/analytics/answer/10447272?hl=en&ref_topic=14088998&sjid=5129943941510317771-SA#zippy=%2Cgoogle-sites
   # and follow the instructions for Google Sites. You will need to create a Google Analytics property and copy the Google tag ID.
