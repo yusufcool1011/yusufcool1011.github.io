@@ -1,4 +1,4 @@
 User-agent: *
 Disallow:
 
-Sitemap: https://yusufcool1011.github.io/sitemap.xml
+Sitemap: https://yoyoscoolwebsite.net/al-folio-old//sitemap.xml
