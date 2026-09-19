@@ -7,7 +7,7 @@ first_name: Yusuf
 middle_name: 
 last_name: H
 contact_note: >
-  You can even add a little note about which of these is the best way to reach you.
+  Contact me:
 description: > # the ">" symbol means to ignore newlines until "footer_text:"
   Welcome to my website!
 footer_text: >
