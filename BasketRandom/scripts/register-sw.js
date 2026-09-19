@@ -1,1 +1,0 @@
-"use strict";window.C3_RegisterSW=async function(){if(navigator.serviceWorker)try{await navigator.serviceWorker.register("sw.js",{scope:"./"})}catch(r){}};
