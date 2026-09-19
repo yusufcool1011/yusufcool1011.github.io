@@ -1,1 +1,0 @@
-const scriptsInEvents={async Introevent_Event2_Act1(t,s){initSDK()},async Rhm_ads_Event1_Act1(t,s){CallInterstitialAds()},async Rhm_ads_Event2_Act1(t,s){CallRewardedAds()}};self.C3.ScriptsInEvents=scriptsInEvents;
